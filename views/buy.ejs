@@ -23,7 +23,7 @@
       <select name="product_id" id="product_id">
         <option disabled selected>-- Please Select --</option>
         <% for(let i = 0; i < dataProduct.length; i++) { %>
-        <option value="<%= dataProduct[i].id %>"><%= dataProduct[i].name %></option>
+        <option value="<%= dataProduct[i].id %>"><%= dataProduct[i].productFullname %></option>
         <% } %>
       </select>
     </div>
