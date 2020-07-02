@@ -10,12 +10,12 @@
 <body>
   <h1><%= title %></h1>
 
-  <form action="/user/buy" method="POST">
+  <form action="/user/buy/<%= dataUser.id %>" method="POST">
     <!-- dataUser -->
-    <div>
+    <!-- <div>
       <label for="user_id">Username</label>
       <input type="text" name="user_id" id="user_id" value="<%= dataUser.id %>">
-    </div>
+    </div> -->
 
     <!-- dataProduct -->
     <div>
