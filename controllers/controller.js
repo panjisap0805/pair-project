@@ -45,7 +45,8 @@ class Controller {
             }
         })
             .then(data => {
-                res.redirect('/user/buy')
+                // console.log(JSON.stringify(data, null, 2))
+                res.redirect(`/user/buy/${data.id}`)
             })
             .catch(err => {
                 res.send(err)
@@ -55,7 +56,6 @@ class Controller {
     static getUserBuy(req, res) {
         const paramId = req.params.id
         let penampung = {}
-
         User.findOne({
             where: {
                 id: paramId
@@ -70,7 +70,10 @@ class Controller {
                 penampung.dataProduct = data
                 // console.log(JSON.stringify(penampung.dataProduct, null, 2))
 
-                res.render('buy', { title: 'a', dataUser: penampung.dataUser, dataProduct: penampung.dataProduct })
+                res.render('buy', {
+                    title: 'a', dataUser: penampung.dataUser,
+                    dataProduct: penampung.dataProduct
+                })
             })
     }
 
@@ -95,7 +98,10 @@ class Controller {
             include: Product
         })
             .then(data => {
-                res.render('checkout', { title: 'checkout', dataTransaction: data })
+                res.render('checkout', {
+                    title: 'checkout',
+                    dataTransaction: data
+                })
                 // console.log(JSON.stringify(data[0], null, 2))
             })
     }
@@ -112,19 +118,47 @@ class Controller {
             })
     }
 
-    static getUserEdit(req, res){
+    static getUserEdit(req, res) {
+        let penampung = {}
         Transaction.findOne({
             where: {
                 id: req.params.id
-            }
+            },
+            include: Product
         })
-        .then(data => {
-            res.render('edit', { })
-        })
+            .then(data => {
+                penampung.dataTransaction = data
+
+                return Product.findAll()
+            })
+            .then(data => {
+                penampung.dataProduct = data
+
+                res.render('edit', {
+                    title: 'a',
+                    dataTransaction: penampung.dataTransaction,
+                    dataProduct: penampung.dataProduct
+                })
+            })
+            .catch(err => {
+                res.send(err)
+            })
     }
 
-    static postUserEdit(req, res){
-        
+    static postUserEdit(req, res) {
+        let obj = {
+            ProductId: req.body.product_id,
+            UserId: req.params.id,
+            total: req.body.product_qty
+        }
+        // console.log(req.body)
+        Transaction.update(obj)
+            .then(data => {
+                res.redirect('/user/checkout')
+            })
+            .catch(err => {
+                res.send(err)
+            })
     }
 }
 

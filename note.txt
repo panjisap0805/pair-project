@@ -25,3 +25,23 @@ ProductId : Integer
 3b. user baru bisa ke pembelian
 4. ke halaman checkout untuk edit atau delete
 5. logout
+
+
+--------------------------------
+GET     /
+GET     /register
+POST    /register
+GET     /login
+POST    /login
+GET     /user/buy/:id
+POST    /user/buy/:id
+GET     /user/checkout
+POST    /user/checkout
+GET     /user/checkout/edit/:id
+POST    /user/checkout/edit/:id
+GET     /user/checkout/delete/:id
+GET     /admin/page
+POST    /admin/page
+GET     /admin/add
+POST    /admin/add
+GET     /logout

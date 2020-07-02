@@ -1,5 +1,12 @@
 const express = require('express')
 const app = express()
+const session = require('express-session')
+
+app.use(session ({
+    secret: 'blabla',
+    resave: false,
+    saveUninitialized: false
+}))
 
 const PORT = 3000
 

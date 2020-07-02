@@ -24,8 +24,8 @@ router.post('/user/checkout/edit/:id', Controller.postUserEdit)
 
 // router.get('/user/checkout/delete/:id', Controller.getUserDelete)
 
-// router.get('/admin/edit/:id', Controller.getEditStock)
-// router.post('/admin/edit/:id', Controller.postEditStock)
+// router.get('/admin/add', Controller.getEditStock)
+// router.post('/admin/add', Controller.postEditStock)
 
 router.get('/user/buy/:id', Controller.getUserBuy)
 router.post('/user/buy/:id', Controller.postUserBuy)
