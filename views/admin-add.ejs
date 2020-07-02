@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><% title %></title>
+</head>
+<body>
+  <form action="/admin/add" method="post">
+    <div>
+      <label for="product_name">Nama Produk</label>
+      <input type="text" name="product_name" id="product_name">
+    </div>
+    <div>
+      <label for="product_size">Ukuran Produk</label>
+      <select name="product_size" id="product_size">
+        <option disabled>-- Please Select --</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+      </select>
+    </div>
+    <div>
+      <button type="submit">Tambah</button>
+    </div>
+  </form>
+</body>
+</html>
