@@ -216,12 +216,17 @@ class Controller {
     }
 
     static getAdminPage(req, res){
-
+        Transaction.findAll({
+            include: [
+                User, Product
+            ]
+        })
+        .then(data => {
+            console.log(JSON.stringify(data[0].User.username, null, 2))
+            res.render('admin', {title: "admin add", dataTransaction: data})
+        })
     }
 
-    static postAdminPage(req, res){
-        
-    }
 }
 
 module.exports = Controller

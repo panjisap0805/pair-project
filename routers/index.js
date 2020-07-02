@@ -13,8 +13,7 @@ router.post('/login', Controller.postLogin)
 
 router.get('/logout', Controller.logout)
 
-// router.get('/admin/page', Controller.getAdminPage)
-// router.post('/admin/page', Controller.postAdminPage)
+router.get('/admin/page', Controller.getAdminPage)
 
 router.get('/user/checkout', Controller.getUserCheckout)
 router.post('/user/checkout', Controller.postUserCheckout)
