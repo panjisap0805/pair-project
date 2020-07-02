@@ -1,0 +1,27 @@
+--------------------
+tabel : - user
+        - product
+        - transaksi
+--------------------
+
+Tabel User:
+username: String
+password: String
+role: admin/user (String)
+
+Tabel product:
+name : String
+size: String
+price : Integer
+
+Tabel Transaksi:
+total : Integer
+UserId : Integer
+ProductId : Integer
+
+1. user register : username, password
+2. user login : username, password pengecekan -> user / admin
+3a. admin ke halaman admin untuk add dan update product
+3b. user baru bisa ke pembelian
+4. ke halaman checkout untuk edit atau delete
+5. logout

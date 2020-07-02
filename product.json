@@ -1,0 +1,52 @@
+[
+    {
+        "name": "Baju kuning",
+        "size": "S",
+        "price": 100000
+    },
+    {
+        "name": "Baju kuning",
+        "size": "M",
+        "price": 110000
+    },
+    {
+        "name": "Baju kuning",
+        "size": "L",
+        "price": 120000
+    },
+    {
+        "name": "Baju kuning",
+        "size": "XL",
+        "price": 130000
+    },
+    {
+        "name": "Baju kuning",
+        "size": "XXL",
+        "price": 140000
+    },
+    {
+        "name": "Baju Merah",
+        "size": "S",
+        "price": 100000
+    },
+    {
+        "name": "Baju Merah",
+        "size": "M",
+        "price": 110000
+    },
+    {
+        "name": "Baju Merah",
+        "size": "L",
+        "price": 120000
+    },
+    {
+        "name": "Baju Merah",
+        "size": "XL",
+        "price": 130000
+    },
+    {
+        "name": "Baju Merah",
+        "size": "XXL",
+        "price": 140000
+    }
+]
