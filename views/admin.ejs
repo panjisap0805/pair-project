@@ -17,12 +17,12 @@
       </tr>
     </thead>
     <tbody>
-      <% for (let i = 0; i < dataTransanction.length; i++) { %> 
+      <% for (let i = 0; i < dataTransaction.length; i++) { %> 
         <tr>
-          <td><%= dataTransanction.id %></td>
-          <td><%= dataTransanction.User.name %></td>
-          <td><%= dataTransanction.Product.productFullname %></td>
-          <td><%= dataTransanction.Product.price * dataTransanction.total %></td>
+          <td><%= dataTransaction.id %></td>
+          <td><%= dataTransaction.User.name %></td>
+          <td><%= dataTransaction.Product.productFullname %></td>
+          <td><%= dataTransaction.Product.price * dataTransaction.total %></td>
         </tr>
       <% } %>
     </tbody>
