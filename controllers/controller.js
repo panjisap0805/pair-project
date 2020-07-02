@@ -34,7 +34,12 @@ class Controller {
     }
 
     static getLogin(req, res) {
-        res.render('login', { title: 'login' })
+        if ( req.session.login ){
+            res.redirect(`/user/buy/${req.session.simpan}`)
+        }
+        else {
+            res.render('login', { title: 'login' })
+        }
     }
 
     static postLogin(req, res) {
@@ -46,6 +51,8 @@ class Controller {
         })
             .then(data => {
                 // console.log(JSON.stringify(data, null, 2))
+                req.session.login = true
+                req.session.simpan = data.id
                 res.redirect(`/user/buy/${data.id}`)
             })
             .catch(err => {
@@ -54,6 +61,7 @@ class Controller {
     }
 
     static getUserBuy(req, res) {
+        if ( req.session.login ){
         const paramId = req.params.id
         let penampung = {}
         User.findOne({
@@ -69,12 +77,16 @@ class Controller {
             .then(data => {
                 penampung.dataProduct = data
                 // console.log(JSON.stringify(penampung.dataProduct, null, 2))
-
-                res.render('buy', {
-                    title: 'a', dataUser: penampung.dataUser,
-                    dataProduct: penampung.dataProduct
-                })
-            })
+                
+                    res.render('buy', {
+                        title: 'a', dataUser: penampung.dataUser,
+                        dataProduct: penampung.dataProduct
+                    })
+            })        
+        }
+        else{
+            res.redirect('/login')
+        }
     }
 
     static postUserBuy(req, res) {
@@ -134,7 +146,7 @@ class Controller {
             .then(data => {
                 penampung.dataProduct = data
 
-                res.render('edit', {
+                res.render('checkout-edit', {
                     title: 'a',
                     dataTransaction: penampung.dataTransaction,
                     dataProduct: penampung.dataProduct
@@ -148,11 +160,14 @@ class Controller {
     static postUserEdit(req, res) {
         let obj = {
             ProductId: req.body.product_id,
-            UserId: req.params.id,
             total: req.body.product_qty
         }
-        // console.log(req.body)
-        Transaction.update(obj)
+        console.log(req.body)
+        Transaction.update(obj, {
+            where: {
+                id: req.params.id
+            }
+        })
             .then(data => {
                 res.redirect('/user/checkout')
             })
@@ -160,6 +175,14 @@ class Controller {
                 res.send(err)
             })
     }
+
+    static logout(req, res){
+        req.session.destroy(err => {
+            res.redirect('/login')
+        })
+    }
+
+    
 }
 
 module.exports = Controller
