@@ -19,8 +19,8 @@
     <tbody>
       <% for (let i = 0; i < dataTransaction.length; i++) { %> 
       <tr>
-        <td><%= dataTransaction.Product.name %></td>
-        <td><%= dataTransaction.qty %></td>
+        <td><%= dataTransaction[i].Product.name %></td>
+        <td><%= dataTransaction[i].qty %></td>
       </tr>
       <% } %>
     </tbody>
