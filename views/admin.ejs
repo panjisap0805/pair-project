@@ -6,24 +6,26 @@
   <title><% title %></title>
 </head>
 <body>
-  <form action="/admin/add" method="post">
-    <div>
-      <label for="product_name">Nama Produk</label>
-      <input type="text" name="product_name" id="product_name">
-    </div>
-    <div>
-      <label for="product_size">Ukuran Produk</label>
-      <select name="product_size" id="product_size">
-        <option disabled>-- Please Select --</option>
-        <option value="S">S</option>
-        <option value="M">M</option>
-        <option value="L">L</option>
-        <option value="XL">XL</option>
-      </select>
-    </div>
-    <div>
-      <button type="submit">Tambah</button>
-    </div>
-  </form>
+  <table>
+    <!-- Lihat orderan dari user semua -->
+    <thead>
+      <tr>
+        <th>Transaction Id</th>
+        <th>Username</th>
+        <th>Product Name</th>
+        <th>Total Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (let i = 0; i < dataTransanction.length; i++) { %> 
+        <tr>
+          <td><%= dataTransanction.id %></td>
+          <td><%= dataTransanction.User.name %></td>
+          <td><%= dataTransanction.Product.productFullname %></td>
+          <td><%= dataTransanction.Product.price * dataTransanction.total %></td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
 </body>
 </html>
