@@ -38,11 +38,30 @@ class Controller{
     }
 
     static postLogin(req, res){
-        const objUser = {
-            username: req.body.username,
-            password: req.body.password
-        }
+        User.findOne({
+            where: {
+                username: req.body.username,
+                password: req.body.password
+            }
+        })
+        .then(data => {
+
+        })
+        .catch(err => {
+
+        })
     }
+
+    static getUserBuy(req, res){
+        res.render('buy', {title: 'Pre Order page'})
+    }
+
+    // static postUserBuy(req, res){
+    //     Product.findAll({
+
+    //     })
+    //     .then
+    // }
 }
 
 module.exports = Controller
