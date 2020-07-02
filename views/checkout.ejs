@@ -14,13 +14,18 @@
       <tr>
         <th>Nama Barang</th>
         <th>Total Pembelian</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
       <% for (let i = 0; i < dataTransaction.length; i++) { %> 
       <tr>
-        <td><%= dataTransaction[i].Product.name %></td>
-        <td><%= dataTransaction[i].qty %></td>
+        <td><%= dataTransaction[i].Product.getFullname %></td>
+        <td><%= dataTransaction[i].total %></td>
+        <td>
+          <a href="/user/checkout/edit/<%= dataTransaction[i].id %>">Edit</a>
+          <a href="/user/checkout/delete/<%= dataTransaction[i].id %>">Delete</a>
+        </td>
       </tr>
       <% } %>
     </tbody>
