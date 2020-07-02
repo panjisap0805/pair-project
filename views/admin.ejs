@@ -19,10 +19,10 @@
     <tbody>
       <% for (let i = 0; i < dataTransaction.length; i++) { %> 
         <tr>
-          <td><%= dataTransaction.id %></td>
-          <td><%= dataTransaction.User.username %></td>
-          <td><%= dataTransaction.Product.productFullname %></td>
-          <td><%= dataTransaction.Product.price * dataTransaction.total %></td>
+          <td><%= dataTransaction[i].id %></td>
+          <td><%= dataTransaction[i].User.username %></td>
+          <td><%= dataTransaction[i].Product.productFullname %></td>
+          <td><%= dataTransaction[i].Product.price * dataTransaction[i].total %></td>
         </tr>
       <% } %>
     </tbody>
