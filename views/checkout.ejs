@@ -20,7 +20,7 @@
     <tbody>
       <% for (let i = 0; i < dataTransaction.length; i++) { %> 
       <tr>
-        <td><%= dataTransaction[i].Product.getFullname %></td>
+        <td><%= dataTransaction[i].Product.productFullname %></td>
         <td><%= dataTransaction[i].total %></td>
         <td>
           <a href="/user/checkout/edit/<%= dataTransaction[i].id %>">Edit</a>
