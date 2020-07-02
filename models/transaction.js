@@ -1,6 +1,6 @@
 'use strict';
 const {
-  Model
+  Model, INTEGER
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Transaction extends Model {
@@ -16,9 +16,15 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Transaction.init({
-    total: DataTypes.INTEGER,
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNull: false
+    },
     UserId: DataTypes.INTEGER,
-    ProductId: DataTypes.INTEGER
+    ProductId: DataTypes.INTEGER,
+    total: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Transaction',

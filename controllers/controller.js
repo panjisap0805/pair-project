@@ -96,7 +96,7 @@ class Controller {
         })
             .then(data => {
                 res.render('checkout', { title: 'checkout', dataTransaction: data })
-                // console.log(JSON.stringify(data[0].Product.name, null, 2))
+                // console.log(JSON.stringify(data[0], null, 2))
             })
     }
 
@@ -105,14 +105,27 @@ class Controller {
             include: Product
         })
             .then(data => {
-                res.render()
+                res.render('/')
             })
             .catch(err => {
                 res.send(err)
             })
     }
 
-    static
+    static getUserEdit(req, res){
+        Transaction.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(data => {
+            res.render('edit', { })
+        })
+    }
+
+    static postUserEdit(req, res){
+        
+    }
 }
 
 module.exports = Controller
