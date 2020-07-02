@@ -34,7 +34,7 @@ class Controller{
     }
 
     static getLogin(req, res){
-        res.render('login')
+        res.render('login', {title: 'login'})
     }
 
     static postLogin(req, res){
@@ -45,23 +45,60 @@ class Controller{
             }
         })
         .then(data => {
-
+            res.redirect('/user/buy')
         })
         .catch(err => {
-
+            res.send(err)
         })
     }
 
     static getUserBuy(req, res){
-        res.render('buy', {title: 'Pre Order page'})
+        let penampung = {}
+
+        User.findAll()
+        .then(data => {
+            penampung.dataUser = data.map( e => {
+                e.username
+                return e
+            })
+            return Product.findAll()
+        })
+        .then(data => {
+            penampung.dataProduct = data
+
+            res.render('buy', { dataUser: penampung.dataUser, dataProduct: penampung.dataProduct})
+        })
     }
 
-    // static postUserBuy(req, res){
-    //     Product.findAll({
+    static postUserBuy(req, res){
+        Product.findAll({
 
-    //     })
-    //     .then
-    // }
+        })
+        .then(data => {
+            res.render('/user/checkout', {product: data})
+        })
+        .catch(err => {
+            res.send(err)
+        })
+    }
+
+    static getUserCheckout(req, res){
+        res.render('checkout', {title: 'checkout'})
+    }
+
+    static postUserCheckout(req, res){
+        Product.findAll({
+
+        })
+        .then(data => {
+            res.render()
+        })
+        .catch(err => {
+            res.send(err)
+        })
+    }
+
+    static 
 }
 
 module.exports = Controller

@@ -17,10 +17,10 @@ router.post('/login', Controller.postLogin)
 // router.post('/admin/page', Controller.postAdminPage)
 
 router.get('/user/buy', Controller.getUserBuy)
-// router.post('/user/buy', Controller.postUserBuy)
+router.post('/user/buy', Controller.postUserBuy)
 
-// router.get('/user/checkout', Controller.getUserCheckout)
-// router.post('/user/checkout', Controller.postUserCheckout)
+router.get('/user/checkout', Controller.getUserCheckout)
+router.post('/user/checkout', Controller.postUserCheckout)
 
 // router.get('/admin/edit/:id', Controller.getEditStock)
 // router.post('/admin/edit/:id', Controller.postEditStock)
