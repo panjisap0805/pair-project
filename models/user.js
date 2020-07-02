@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const { options } = require('../routers');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -24,5 +25,9 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'User',
   });
+  User.addHook('beforeCreate', (user, options) => {
+    user.role = 'user'
+  })
+
   return User;
 };
