@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+</head>
+<body>
+  <form action="/user/buy/<%= dataUser.id %>" method="POST">
+    <!-- dataUser -->
+    <!-- <div>
+      <label for="user_id">Username</label>
+      <input type="text" name="user_id" id="user_id" value="<%= dataUser.id %>">
+    </div> -->
+
+    <!-- dataProduct -->
+    <div>
+      <label for="product_id">Product</label>
+      <select name="product_id" id="product_id">
+        <% for(let i = 0; i < dataProduct.length; i++) { %>
+        <option value="<%= dataProduct[i].id %>" <%= dataProduct[i].id == dataTransaction.ProductId ? "selected" : "" %> ><%= dataProduct[i].productFullname %></option>
+        <% } %>
+      </select>
+    </div>
+
+    <div>
+      <label for="product_qty">Quantity</label>
+      <input type="number" name="product_qty" id="product_qty" value="<%= dataTransaction.total %>">
+    </div>
+
+    <div>
+      <button type="submit">Buy</button>
+    </div>
+  </form>
+</body>
+</html>
