@@ -15,6 +15,10 @@ module.exports = (sequelize, DataTypes) => {
         through: models.Transaction
       })
     }
+    get productFullname(){
+
+      return `${this.name}-${this.size}`
+    }
   };
   Product.init({
     name: DataTypes.STRING,
@@ -24,5 +28,6 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Product',
   });
+
   return Product;
 };

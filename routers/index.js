@@ -16,16 +16,18 @@ router.post('/login', Controller.postLogin)
 // router.get('/admin/page', Controller.getAdminPage)
 // router.post('/admin/page', Controller.postAdminPage)
 
-router.get('/user/buy', Controller.getUserBuy)
-router.post('/user/buy', Controller.postUserBuy)
-
 router.get('/user/checkout', Controller.getUserCheckout)
 router.post('/user/checkout', Controller.postUserCheckout)
+
+router.get('/user/checkout/edit/:id', Controller.getUserEdit)
+router.post('/user/checkout/edit/:id', Controller.postUserEdit)
+
+// router.get('/user/checkout/delete/:id', Controller.getUserDelete)
 
 // router.get('/admin/edit/:id', Controller.getEditStock)
 // router.post('/admin/edit/:id', Controller.postEditStock)
 
-// router.get('/user/checkout/:id', Controller.getUserEdit)
-// router.post('/user/checkout/:id', Controller.postUserEdit)
+router.get('/user/buy/:id', Controller.getUserBuy)
+router.post('/user/buy/:id', Controller.postUserBuy)
 
 module.exports = router;
