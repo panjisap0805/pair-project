@@ -45,3 +45,8 @@ POST    /admin/page
 GET     /admin/add
 POST    /admin/add
 GET     /logout
+
+transaksi id
+username
+nama barang
+harga total

@@ -22,10 +22,10 @@ router.post('/user/checkout', Controller.postUserCheckout)
 router.get('/user/checkout/edit/:id', Controller.getUserEdit)
 router.post('/user/checkout/edit/:id', Controller.postUserEdit)
 
-// router.get('/user/checkout/delete/:id', Controller.getUserDelete)
+router.get('/user/checkout/delete/:id', Controller.getUserDelete)
 
-// router.get('/admin/add', Controller.getEditStock)
-// router.post('/admin/add', Controller.postEditStock)
+router.get('/admin/add', Controller.getAddStock)
+router.post('/admin/add', Controller.postAddStock)
 
 router.get('/user/buy/:id', Controller.getUserBuy)
 router.post('/user/buy/:id', Controller.postUserBuy)

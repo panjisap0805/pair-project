@@ -182,7 +182,46 @@ class Controller {
         })
     }
 
-    
+    static getUserDelete(req, res){
+        Transaction.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(data => {
+            res.redirect('/user/checkout')
+        })
+        .catch(err => {
+            res.send(err)
+        })
+    }
+
+    static getAddStock(req, res){
+        res.render('admin-add', {title: "add stock"})
+    }
+
+    static postAddStock(req, res){
+        let obj = {
+            name: req.body.product_name,
+            size: req.body.product_size
+        }
+        Product.create(obj)
+        .then(data => {
+            res.redirect('/admin/page')
+        })
+        .catch( err => {
+            res.send(err)
+        })
+
+    }
+
+    static getAdminPage(req, res){
+
+    }
+
+    static postAdminPage(req, res){
+        
+    }
 }
 
 module.exports = Controller
