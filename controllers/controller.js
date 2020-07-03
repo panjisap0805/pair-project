@@ -1,4 +1,6 @@
 const { Product, User, Transaction } = require('../models/index.js')
+const Helper = require('../helpers/helper.js')
+
 
 class Controller {
 
@@ -16,7 +18,7 @@ class Controller {
     }
 
     static getRegister(req, res) {
-        res.render('register')
+        res.render('register', {title: 'Register'})
     }
 
     static postRegister(req, res) {
@@ -36,6 +38,7 @@ class Controller {
     static getLogin(req, res) {
         if ( req.session.login ){
             res.redirect(`/user/buy/${req.session.simpan}`)
+            console.log(req.body.role)
         }
         else {
             res.render('login', { title: 'login' })
@@ -79,7 +82,7 @@ class Controller {
                 // console.log(JSON.stringify(penampung.dataProduct, null, 2))
                 
                     res.render('buy', {
-                        title: 'a', dataUser: penampung.dataUser,
+                        title: 'Buy Form', dataUser: penampung.dataUser,
                         dataProduct: penampung.dataProduct
                     })
             })        
@@ -178,7 +181,7 @@ class Controller {
 
     static logout(req, res){
         req.session.destroy(err => {
-            res.redirect('/login')
+            res.redirect('/')
         })
     }
 
@@ -222,8 +225,14 @@ class Controller {
             ]
         })
         .then(data => {
-            console.log(JSON.stringify(data[0].User.username, null, 2))
-            res.render('admin', {title: "admin add", dataTransaction: data})
+            console.log(JSON.stringify(data, null, 2))
+            let penampung = []
+            data.map(e => {
+                penampung.push(
+                    Helper.numberFormating(e.total * e.Product.price)
+                )
+            })
+            res.render('admin', {title: "admin add", dataTransaction: data, format:penampung})
         })
     }
 

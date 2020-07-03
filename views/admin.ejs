@@ -7,6 +7,7 @@
   <title><% title %></title>
 </head>
 <body>
+  <a href="/admin/add">Add Product</a>
   <table>
     <!-- Lihat orderan dari user semua -->
     <thead>
@@ -23,10 +24,14 @@
           <td><%= dataTransaction[i].id %></td>
           <td><%= dataTransaction[i].User.username %></td>
           <td><%= dataTransaction[i].Product.productFullname %></td>
-          <td><%= dataTransaction[i].Product.price * dataTransaction[i].total %></td>
+          <td><%= format[i] %></td>
         </tr>
       <% } %>
     </tbody>
   </table>
+  <br>
+  <br>
+  <br>
+  <center><a href="/logout">Logout</a></center>
 </body>
 </html>

@@ -1,7 +1,5 @@
 'use strict';
 
-const helper = require("../helpers/helper");
-
 module.exports = {
   up: (queryInterface, Sequelize) => {
     /**
@@ -15,7 +13,7 @@ module.exports = {
     */
     return queryInterface.bulkInsert('Users', [{
       username: 'admin',
-      password: helper.encrypt('admin'),
+      password: 'admin',
       role: 'admin',
       createdAt: new Date(),
       updatedAt: new Date() 
